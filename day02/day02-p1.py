@@ -5,7 +5,6 @@ content = {'red': 12,
            'green': 13,
            'blue': 14
             }
-
 while line:
     parts = line.replace(',', '').replace(':', '').replace('\n', '').replace(';', '').split(' ')
     for i in range(2, len(parts), 2):
