@@ -2,7 +2,6 @@ sum = 0
 file = open("input.txt", "r")
 line = file.readline()
 
-# id = index 1 in parts
 while line:
     min_cubes = dict()
     parts = line.replace(',', '').replace(':', '').replace('\n', '').replace(';', '').split(' ')
