@@ -1,5 +1,5 @@
 line = input()
-sum = 0
+ans = 0
 while line:
     for c in line: # find first digit
         if c.isdigit():
@@ -9,6 +9,6 @@ while line:
         if c.isdigit():
             last = int(c)
             break
-    sum += 10 * first + last
+    ans += 10 * first + last
     line = input()
-print(sum)
+print(ans)

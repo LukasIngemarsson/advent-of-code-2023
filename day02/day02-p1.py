@@ -1,4 +1,4 @@
-sum = 0
+ans = 0
 file = open("input.txt", "r")
 line = file.readline()
 content = {'red': 12,
@@ -11,6 +11,6 @@ while line:
         if not int(parts[i]) <= content[parts[i + 1]]:
             break
     else:
-        sum += int(parts[1])
+        ans += int(parts[1])
     line = file.readline()
-print(sum)
+print(ans)

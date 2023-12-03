@@ -1,5 +1,5 @@
 line = input()
-sum = 0
+ans = 0
 digits = {"one": 1, 
           "two": 2,
           "three": 3,
@@ -39,6 +39,6 @@ while line:
             else:
                 continue
             break
-    sum += 10 * first + last
+    ans += 10 * first + last
     line = input()
-print(sum)
+print(ans)
