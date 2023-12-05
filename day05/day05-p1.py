@@ -1,5 +1,5 @@
 file = open("input.txt", "r")
-seeds, ranges, expect_new_map, loc_nums = [], [], False, []
+seeds, ranges, expect_new_map, min_loc = [], [], False, float('inf')
 for i, line in enumerate(file):
     if i == 0: # read in seeds
         seeds = [int(x) for x in line.strip().split(':')[1].split()]
@@ -19,5 +19,5 @@ for seed in seeds:
             if curr_key >= r[1] and curr_key < r[1] + r[2]:
                 curr_key = r[0] + (curr_key - r[1])
                 break
-    loc_nums.append(curr_key)
-print(min(loc_nums))
+    if curr_key < min_loc: min_loc = curr_key
+print(min_loc)
