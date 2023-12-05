@@ -6,7 +6,7 @@ for i, line in enumerate(file):
     elif line == '\n': # new line, expect new map next iteration
         expect_new_map = True
     elif expect_new_map: # new map
-        expect_new_map, expect_new_num = False, True
+        expect_new_map = False
         new_map = line.strip().replace(' map:', '').split('-to-')
         ranges.append([])
     else: # range
