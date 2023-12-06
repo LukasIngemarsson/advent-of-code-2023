@@ -12,23 +12,21 @@ for i, line in enumerate(file):
     else: # range
         map_range = [int(x) for x in line.strip().split()] # 0: dest range start, 1: src range start, 2: range length
         ranges[-1].append(map_range)
-def find_min_loc():
-    seed_ranges = [(seeds[i], seeds[i] + seeds[i+1]) for i in range(0, len(seeds), 2)]
-    steps, bounds = [10**n for n in reversed(range(6))], (0, max([r[0] + r[2] for r in ranges[-1]]))
-    for step in steps:
-        for loc_val in range(*bounds, step):
-            curr = loc_val
-            for range_ in ranges[::-1]:
-                for r in range_: 
-                    if curr >= r[0] and curr < r[0] + r[2]:
-                        curr = r[1] + (curr - r[0])
-                        break
-            for seed_range in seed_ranges:
-                if curr >= seed_range[0] and curr <= seed_range[1]:
-                    bounds = (loc_val - step, loc_val)
+seed_ranges = [(seeds[i], seeds[i] + seeds[i+1]) for i in range(0, len(seeds), 2)]
+steps, bounds = [10**n for n in reversed(range(6))], (0, max([r[0] + r[2] for r in ranges[-1]]))
+for step in steps:
+    for loc_val in range(*bounds, step):
+        curr = loc_val
+        for range_ in ranges[::-1]:
+            for r in range_: 
+                if curr >= r[0] and curr < r[0] + r[2]:
+                    curr = r[1] + (curr - r[0])
                     break
-            else:
-                continue
-            break
-    return bounds[1]
-print(find_min_loc())
+        for seed_range in seed_ranges:
+            if curr >= seed_range[0] and curr <= seed_range[1]:
+                bounds = (loc_val - step, loc_val)
+                break
+        else:
+            continue
+        break
+print(bounds[1])
