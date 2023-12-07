@@ -59,4 +59,3 @@ for key, val in types.items():
         ans += v[1] * rank
         rank += 1
 print(ans)
-        
