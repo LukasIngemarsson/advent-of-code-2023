@@ -10,7 +10,6 @@ while True:
         steps += 1
         curr = graph[curr][0] if ch == 'L' else graph[curr][1]
         if curr == end: break
-    else:
-        continue
+    else: continue
     break
 print(steps)
