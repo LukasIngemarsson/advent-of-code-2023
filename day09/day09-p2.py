@@ -9,5 +9,8 @@ for line in file:
         if all(n == 0 for n in new_seq):
             break
         sequences.append(new_seq)
-    ans += sum([seq[-1] for seq in sequences]) # extrapolate value
+    temp = 0
+    for seq in reversed(sequences): # extrapolate backwards
+        temp = seq[0] - temp
+    ans += temp
 print(ans)
