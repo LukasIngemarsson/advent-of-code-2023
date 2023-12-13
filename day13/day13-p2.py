@@ -32,7 +32,6 @@ def find_pattern(grid, axis) -> int:
                 break
             else:
                 if smudge:
-                    print('c', i+1)
                     return i+1
     return 0
 
