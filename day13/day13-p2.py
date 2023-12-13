@@ -1,32 +1,30 @@
-file = open("input.txt", "r")
-tot_cols, tot_rows = 0, 0
-grid = []
-for line in file:
-    if line == '\n':
+def find_pattern(grid, axis) -> int:
+    if axis == 'x':
         for i in range(len(grid)-1):
-            smudge = False
-            for j in range(i+1):
-                if not i+j+1 < len(grid):
-                    tot_rows += i+1
+            offx = 0
+            while i-offx >= 0 and i+offx+1 < len(grid):
+                if not grid[i-offx] == grid[i+offx+1]:
                     break
-                elif not grid[i-j] == grid[i+j+1]:
-                    for a, b in zip(grid[i-j], grid[i+j+1]):
-                        if a != b:
-                            if not smudge:
-                                smudge = True
-                            else:
-                                break          
+                offx += 1
             else:
-                tot_rows += i+1
+                return i+1
+    elif axis == 'y':
         for i in range(len(grid[0])-1):
-            for j in range(i+1):
-                if not i+j+1 < len(grid[0]):
-                    tot_cols += i+1
+            offy = 0
+            while i-offy >= 0 and i+offy+1 < len(grid[0]):
+                if not [r[i-offy] for r in grid] == [r[i+offy+1] for r in grid]:
                     break
-                elif not [r[i-j] for r in grid] == [r[i+j+1] for r in grid]:
-                    break
+                offy += 1
             else:
-                tot_cols += i+1
+                return i+1
+    return 0
+
+file = open("input.txt", "r")
+tot_cols, tot_rows, grid = 0, 0, []
+for line in file.readlines() + ['\n']:
+    if line == '\n':
+        tot_rows += find_pattern(grid, 'x')
+        tot_cols += find_pattern(grid, 'y')
         grid = []
     else:
         grid.append(line.strip())
