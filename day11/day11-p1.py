@@ -9,7 +9,6 @@ def get_shortest_path_sum(graph, start_node, end_nodes):
                     sum_ += len(path)
                     end_nodes.remove(neighbor)
                     if not end_nodes:
-                        print(sum_)
                         return sum_
                 new_path = list(path)
                 new_path.append(neighbor)
