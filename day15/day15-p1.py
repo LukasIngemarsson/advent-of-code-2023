@@ -4,9 +4,9 @@ def hash_algorithm(ch):
 ans = 0
 with open("input.txt") as f:
     sequences = [list(x) for x in f.readline().split(',')]
-    for seq in sequences:
-        curr = 0
-        for ch in seq:
-            curr = hash_algorithm(curr + ord(ch))
-        ans += curr
+for seq in sequences:
+    curr = 0
+    for ch in seq:
+        curr = hash_algorithm(curr + ord(ch))
+    ans += curr
 print(ans)
