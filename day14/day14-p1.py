@@ -3,7 +3,6 @@ with open("input.txt", "r") as f:
     ans = len(grid) * grid[0].count('O')
     for i, row in enumerate(grid[1:], start=1):
         rrocks = [i_ for i_, ch in enumerate(row) if ch == 'O']
-        print(rrocks)
         for rri in rrocks:
             off = 0
             for j in reversed(range(i)):
