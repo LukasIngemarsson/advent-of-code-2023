@@ -37,4 +37,4 @@ def traverse_grid(grid: list) -> int:
 
 with open("input.txt", "r") as f:
     grid = [list(row.strip()) for row in f.readlines()]
-    print(traverse_grid(grid))
+print(traverse_grid(grid))
