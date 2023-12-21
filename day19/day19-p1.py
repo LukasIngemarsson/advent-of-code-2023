@@ -1,7 +1,7 @@
 import re
 
-def assess_part(xmas, start):
-    curr = start
+def assess_part(xmas, workflows, start):
+    curr = workflows[start]
     while True:
         for var, rule, dst in curr[0]:
             if rule(xmas[var]):
@@ -36,5 +36,5 @@ with open("input.txt", "r") as f:
     ans = 0
     for line in f: 
         xmas = {k: int(ch) for k, ch in zip(('x', 'm', 'a', 's'), re.findall(r'\d+', line))}
-        ans += assess_part(xmas, workflows['in'])
+        ans += assess_part(xmas, workflows, 'in')
 print(ans)
