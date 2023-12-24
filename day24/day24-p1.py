@@ -18,7 +18,7 @@ def find_intersections(hailstones):
             if ((vx1 > 0 and px1 <= xintersect) or (vx1 < 0 and px1 >= xintersect)) and\
                 ((vx2 > 0 and px2 <= xintersect) or (vx2 < 0 and px2 >= xintersect)) and\
                 (bound[0] <= xintersect <= bound[1] and bound[0] <= yintersect <= bound[1]):
-                    count += 1
+                count += 1
     return count
 
 with open("input.txt", "r") as f:
