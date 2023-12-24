@@ -25,7 +25,3 @@ with open("input.txt", "r") as f:
     lines = [[int(x) for x in re.split(", | @ ", line.strip())] for line in f]
 hailstones = [(line[:2], line[3:5]) for line in lines]
 print(find_intersections(hailstones))
-        
-        
-        
-        
